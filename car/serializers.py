@@ -17,6 +17,17 @@ class CarSerializer(serializers.ModelSerializer):
         allow_blank=True
     )
 
+    class Meta:
+        model = Car
+        fields = [
+            "id",
+            "manufacturer",
+            "model",
+            "horse_power",
+            "is_broken",
+            "problem_description"
+        ]
+
     def create(self, validated_data):
         return Car.objects.create(**validated_data)
 
